@@ -16,3 +16,16 @@ let example = async function () {
 };
 
 example();
+
+let example2 = async function () {
+    let awaitEnd = lock();
+    awaitEnd.resolve();
+
+    console.log('Start!', new Date().getTime());
+
+    let endPromise = await awaitEnd.promise;
+
+    console.log('End!', new Date().getTime());
+};
+
+example2();
